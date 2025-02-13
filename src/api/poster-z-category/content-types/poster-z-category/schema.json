@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "poster_z_categories",
+  "info": {
+    "singularName": "poster-z-category",
+    "pluralName": "poster-z-categories",
+    "displayName": "PosterZCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "key": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "poster_z_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::poster-z-product.poster-z-product",
+      "mappedBy": "poster_z_category"
+    }
+  }
+}
